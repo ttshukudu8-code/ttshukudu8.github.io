@@ -1,4 +1,8 @@
 /* 🌍 Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,28 +15,82 @@ body {
 .container {
     position: relative;
     z-index: 10;
-    max-width: 800px; /* Slimmer for better reading */
+    max-width: 800px;
     margin: auto;
     padding: 40px 20px;
 }
 
-/* 🔵 Animated Background */
+/* 🔵 Animated Background Shapes */
 .shape {
-    position: fixed; /* Fixed so they stay during scroll */
+    position: fixed;
     border-radius: 50%;
     opacity: 0.3;
     filter: blur(60px);
     z-index: 1;
-    animation: float 12s infinite ease-in-out;
 }
 
-.shape1 { width: 250px; height: 250px; background: #3b82f6; top: -50px; left: -50px; }
-.shape2 { width: 350px; height: 350px; background: #22c55e; bottom: -50px; right: -50px; animation-delay: 2s; }
-.shape3 { width: 200px; height: 200px; background: #a855f7; top: 40%; left: 80%; animation-delay: 4s; }
+/* Shape 1: Combined float and pulse animations */
+.shape1 { 
+    width: 250px; 
+    height: 250px; 
+    background: #3b82f6; 
+    top: -50px; 
+    left: -50px; 
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    animation: float 12s infinite ease-in-out, pulse 8s infinite alternate ease-in-out;
+}
+
+.shape2 { 
+    width: 350px; 
+    height: 350px; 
+    background: #22c55e; 
+    bottom: -50px; 
+    right: -50px; 
+    animation: float 12s infinite ease-in-out reverse;
+    animation-delay: 2s; 
+}
+
+.shape3 { 
+    width: 200px; 
+    height: 200px; 
+    background: #a855f7; 
+    top: 40%; 
+    left: 80%; 
+    animation: float 10s infinite ease-in-out;
+    animation-delay: 4s; 
+}
 
 @keyframes float {
     0%, 100% { transform: translate(0, 0); }
     50% { transform: translate(30px, -50px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(90deg); opacity: 0.5; }
+    100% { transform: scale(1) rotate(180deg); opacity: 0.3; }
+}
+
+/* 🧪 Data Stream Background */
+.data-stream {
+    position: fixed;
+    top: 0;
+    left: 5%;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: monospace;
+    font-size: 14px;
+    color: rgba(34, 197, 94, 0.1);
+    white-space: nowrap;
+    user-select: none;
+    z-index: 0;
+    letter-spacing: 8px;
+    animation: stream 25s linear infinite;
+}
+
+@keyframes stream {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100%); }
 }
 
 /* 🃏 Glassmorphism Cards */
@@ -44,20 +102,22 @@ body {
     margin-bottom: 20px;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
     border-color: rgba(59, 130, 246, 0.5);
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 10px; color: #f8fafc; }
+h1 { font-size: 2.5rem; margin: 0 0 10px 0; color: #f8fafc; }
 h2 { color: #60a5fa; font-size: 1.5rem; margin-top: 0; }
 .subtitle { font-size: 1.1rem; color: #94a3b8; margin-bottom: 30px; }
 
-/* 🏷️ Tags */
-.tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+/* 🏷️ Tags & Shimmer Effect */
+.tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
 .tag {
     background: rgba(59, 130, 246, 0.15);
     color: #93c5fd;
@@ -66,49 +126,6 @@ h2 { color: #60a5fa; font-size: 1.5rem; margin-top: 0; }
     font-size: 0.85rem;
     font-weight: 500;
     border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-a { color: #60a5fa; text-decoration: none; font-weight: bold; }
-a:hover { text-decoration: underline; }
-
-/* 📱 Mobile Responsiveness (Media Queries) */
-@media (max-width: 600px) {
-    h1 { font-size: 1.8rem; }
-    .container { padding: 20px 15px; }
-    .card { padding: 20px; }
-    .shape { opacity: 0.2; } /* Lower opacity on mobile for performance */
-}
-/* 🧠 Neural Pulse Animation */
-.shape1 {
-    animation: pulse 8s infinite alternate ease-in-out;
-    border: 2px solid rgba(59, 130, 246, 0.5); /* Blue wireframe look */
-}
-
-@keyframes pulse {
-    0% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-    50% { transform: scale(1.2) rotate(90deg); opacity: 0.5; }
-    100% { transform: scale(1) rotate(180deg); opacity: 0.3; }
-}
-.data-stream {
-    position: fixed;
-    top: 0;
-    left: 5%;
-    writing-mode: vertical-rl; /* Vertical text */
-    text-orientation: upright;
-    font-family: monospace;
-    font-size: 14px;
-    color: rgba(34, 197, 94, 0.1); /* Very faint green */
-    white-space: nowrap;
-    user-select: none;
-    z-index: 0;
-    animation: stream 20s linear infinite;
-}
-
-@keyframes stream {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(100%); }
-}
-.tag {
     position: relative;
     overflow: hidden;
 }
@@ -120,15 +137,23 @@ a:hover { text-decoration: underline; }
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: 0.5s;
 }
 
 .tag:hover::before {
     left: 100%;
+}
+
+/* 🔗 Links */
+a { color: #60a5fa; text-decoration: none; font-weight: bold; transition: 0.2s; }
+a:hover { color: #93c5fd; text-decoration: underline; }
+
+/* 📱 Mobile Responsiveness */
+@media (max-width: 600px) {
+    h1 { font-size: 1.8rem; }
+    .container { padding: 20px 15px; }
+    .card { padding: 20px; }
+    .shape { opacity: 0.2; filter: blur(40px); }
+    .data-stream { font-size: 10px; left: 2%; }
 }
