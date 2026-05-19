@@ -78,3 +78,57 @@ a:hover { text-decoration: underline; }
     .card { padding: 20px; }
     .shape { opacity: 0.2; } /* Lower opacity on mobile for performance */
 }
+/* 🧠 Neural Pulse Animation */
+.shape1 {
+    animation: pulse 8s infinite alternate ease-in-out;
+    border: 2px solid rgba(59, 130, 246, 0.5); /* Blue wireframe look */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(90deg); opacity: 0.5; }
+    100% { transform: scale(1) rotate(180deg); opacity: 0.3; }
+}
+.data-stream {
+    position: fixed;
+    top: 0;
+    left: 5%;
+    writing-mode: vertical-rl; /* Vertical text */
+    text-orientation: upright;
+    font-family: monospace;
+    font-size: 14px;
+    color: rgba(34, 197, 94, 0.1); /* Very faint green */
+    white-space: nowrap;
+    user-select: none;
+    z-index: 0;
+    animation: stream 20s linear infinite;
+}
+
+@keyframes stream {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100%); }
+}
+.tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.tag:hover::before {
+    left: 100%;
+}
