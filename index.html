@@ -1,96 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thato Jovial Tshukudu | Data Engineer</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* 🔵 Animated background shapes */
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.4;
-            filter: blur(40px);
-            animation: float 12s infinite ease-in-out;
-        }
-
-        .shape1 {
-            width: 200px;
-            height: 200px;
-            background: #3b82f6;
-            top: 10%;
-            left: 10%;
-        }
-
-        .shape2 {
-            width: 300px;
-            height: 300px;
-            background: #22c55e;
-            bottom: 10%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-
-        .shape3 {
-            width: 150px;
-            height: 150px;
-            background: #a855f7;
-            top: 50%;
-            left: 70%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-40px) translateX(30px); }
-            100% { transform: translateY(0px) translateX(0px); }
-        }
-
-        /* 🧊 Content box */
-        .container {
-            position: relative;
-            z-index: 10;
-            max-width: 900px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        h1 {
-            font-size: 40px;
-            margin-bottom: 5px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: rgba(59,130,246,0.3);
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 8px;
-            font-size: 12px;
-        }
-
-        a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <!-- Floating shapes -->
@@ -98,51 +13,51 @@
     <div class="shape shape2"></div>
     <div class="shape shape3"></div>
 
-    <!-- Content -->
     <div class="container">
+        <header>
+            <h1>Thato Jovial Tshukudu</h1>
+            <p class="subtitle">Business Management | Aspiring Data Engineer | AWS Certified</p>
+        </header>
 
-        <h1>Thato Jovial Tshukudu</h1>
-        <p>Business Management | Aspiring Data Engineer | AWS Certified</p>
-
-        <div class="card">
+        <section class="card">
             <h2>About Me</h2>
-            <p>
-                I build cloud-based data pipelines and dashboards that turn raw data into business insights.
-                I combine business knowledge with data engineering and cloud skills.
-            </p>
-        </div>
+            <p>I build cloud-based data pipelines and dashboards that turn raw data into business insights. I combine business knowledge with data engineering and cloud skills.</p>
+        </section>
 
-        <div class="card">
+        <section class="card">
             <h2>Skills</h2>
-            <span class="tag">SQL</span>
-            <span class="tag">Python</span>
-            <span class="tag">AWS Basics</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">Data Analysis</span>
-        </div>
+            <div class="tag-container">
+                <span class="tag">SQL</span>
+                <span class="tag">Python</span>
+                <span class="tag">AWS Basics</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">Data Analysis</span>
+            </div>
+        </section>
 
-        <div class="card">
+        <section class="card">
             <h2>Projects</h2>
+            <div class="project">
+                <h3>Cloud Data Pipeline</h3>
+                <p>Built a simple ETL pipeline using AWS S3, Python, and SQL.</p>
+            </div>
+            <div class="project">
+                <h3>Sales Dashboard</h3>
+                <p>Created insights dashboard showing business performance trends.</p>
+            </div>
+        </section>
 
-            <h3>Cloud Data Pipeline</h3>
-            <p>Built a simple ETL pipeline using AWS S3, Python, and SQL.</p>
-
-            <h3>Sales Dashboard</h3>
-            <p>Created insights dashboard showing business performance trends.</p>
-        </div>
-
-        <div class="card">
+        <section class="card">
             <h2>Certifications</h2>
             <p>AWS Cloud Practitioner</p>
             <p>Cisco Data Analyst (in progress)</p>
-        </div>
+        </section>
 
-        <div class="card">
+        <footer class="card">
             <h2>Contact</h2>
-            <p>Email: ttshukudu8@gmail.com.com</p>
-            <p>LinkedIn: <a href="#">https://www.linkedin.com/in/thato-jovial-tshukudu-tjt/</a></p>
-        </div>
-
+            <p>Email: <a href="mailto:ttshukudu8@gmail.com">ttshukudu8@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/thato-jovial-tshukudu-tjt/" target="_blank">View Profile</a></p>
+        </footer>
     </div>
 
 </body>
